@@ -8,8 +8,9 @@ const admin = require("firebase-admin");
 admin.initializeApp();
 
 const ethers = require("ethers");
-const maticMumbai = "https://rpc-mumbai.maticvigil.com";
-const provider = new ethers.providers.JsonRpcProvider(maticMumbai);
+// FEVM RPC
+const FilecoinRpc = "https://api.hyperspace.node.glif.io/rpc/v1";
+const provider = new ethers.providers.JsonRpcProvider(FilecoinRpc);
 
 const CircularChainABI = require("./abi/CircularChain.json");
 const CircularChainContractAddress = "0x6523F56455647100d2F7eAAe00359e40E52dC1d3";
