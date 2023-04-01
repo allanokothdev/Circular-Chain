@@ -11,6 +11,7 @@ const ethers = require("ethers");
 // FEVM RPC
 const FilecoinRpc = "https://api.hyperspace.node.glif.io/rpc/v1";
 const provider = new ethers.providers.JsonRpcProvider(FilecoinRpc);
+const privateKey = "28c79b842a827fd27d66806d4662b259be4b23f4d732564c32ff900122bc0637";
 
 const CircularChainABI = require("./abi/CircularChain.json");
 const CircularChainContractAddress = "0x6523F56455647100d2F7eAAe00359e40E52dC1d3";
@@ -29,7 +30,6 @@ exports.createWallet = functions.https.onCall(() => {
 // FETCH SUPPLY CHAIN STAGES
 exports.fetchStages = functions.https.onCall(async (_data, context) => {
   try {
-    const privateKey = _data.key;
     const batchId = _data.batch;
     const signer = new ethers.Wallet(privateKey, provider);
     const circularContract = new ethers.Contract(CircularChainContractAddress, CircularChainABI, signer);
@@ -62,7 +62,6 @@ exports.fetchStages = functions.https.onCall(async (_data, context) => {
 // FETCH SUPPLY CHAIN BATCH STAGES
 exports.fetchBatchDetails = functions.https.onCall(async (data, context) => {
   try {
-    const privateKey = data.key;
     const batchId = data.batch;
     const signer = new ethers.Wallet(privateKey, provider);
     const circularContract = new ethers.Contract(CircularChainContractAddress, CircularChainABI, signer);
@@ -81,7 +80,6 @@ exports.fetchBatchDetails = functions.https.onCall(async (data, context) => {
 // FETCH SUPPLY CHAIN STAGES
 exports.calculateAggregateESGScore = functions.https.onCall(async (data, context) => {
   try {
-    const privateKey = data.key;
     const batchId = data.batch;
     const signer = new ethers.Wallet(privateKey, provider);
     const circularContract = new ethers.Contract(CircularChainContractAddress, CircularChainABI, signer);
@@ -102,7 +100,6 @@ exports.calculateAggregateESGScore = functions.https.onCall(async (data, context
 // ADD NEW PRODUCT BATCH
 exports.createBatch = functions.https.onCall(async (data, context) => {
   try {
-    const privateKey = data.key;
     const brandId = data.brandId;
     const stakeholders = data.stakeholders;
     const signer = new ethers.Wallet(privateKey, provider);
@@ -121,7 +118,6 @@ exports.createBatch = functions.https.onCall(async (data, context) => {
 
 exports.addNewStage = functions.https.onCall(async (data, context) => {
   try {
-    const privateKey = data.key;
     const address = data.address;
     const batchId = data.batch;
     const title = data.title;
