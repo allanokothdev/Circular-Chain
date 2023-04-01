@@ -1,0 +1,17 @@
+<resources>
+    <!-- Arrays &amp;-->
+
+    <string-array name="category">
+        <item>Beverage</item>
+        <item>Chemicals</item>
+        <item>Cosmetics</item>
+        <item>Electronics</item>
+        <item>Food</item>
+        <item>Footwear</item>
+        <item>Medicine</item>
+        <item>Menswear</item>
+        <item>Tools</item>
+        <item>Women wear</item>
+    </string-array>
+
+</resources>

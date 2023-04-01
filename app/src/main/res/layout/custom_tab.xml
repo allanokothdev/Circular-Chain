@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:textSize="15sp"
+    android:fontFamily="@font/open_sans_semibold"
+    android:gravity="center"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="10dp"
+    android:background="@drawable/tab_selector"
+    android:textColor="@drawable/tab_text_color_selector"
+    android:paddingBottom="10dp" />
