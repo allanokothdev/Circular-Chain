@@ -52,7 +52,6 @@ public class ProductDetail extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         Product product = (Product) bundle.getSerializable("object");
-        String privateKey = GetUser.fetchObject(mContext, Constants.PRIVATE_KEY);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -72,12 +71,11 @@ public class ProductDetail extends AppCompatActivity {
 
         imageView.setTransitionName(product.getId());
         Glide.with(mContext.getApplicationContext()).load(product.getPic()).centerCrop().dontAnimate().listener(new RequestListener<Drawable>() {@Override public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) { supportStartPostponedEnterTransition();return false; }@Override public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) { supportStartPostponedEnterTransition();return false; }}).into(imageView);
-        fetchStages(privateKey, product.getBatchId());
+        fetchStages(product.getBatchId());
     }
 
-    private void fetchStages(String privateKey, int batchId){
+    private void fetchStages(int batchId){
         Map<String, Object> data = new HashMap<>();
-        data.put("key", privateKey);
         data.put("batch", batchId);
         firebaseFunctions.getHttpsCallable(Constants.FETCH_STAGES).call(data).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
