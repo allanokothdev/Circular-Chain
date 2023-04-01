@@ -21,6 +21,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:visibility="invisible"
             android:tag="collections"
             android:id="@+id/imageView"
             android:layout_gravity="end|center_vertical"
@@ -34,6 +35,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.tabs.TabLayout
+        android:layout_below="@id/toolbar"
         android:layout_marginTop="@dimen/dimen_8"
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
@@ -66,7 +68,7 @@
         android:minHeight="56dp"
         app:backgroundTint="@color/colorPrimary"
         app:iconTint="@color/colorWhite"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorWhite"
         android:fontFamily="@font/open_sans_semibold"
         android:textAllCaps="false"
         android:text="@string/create_product"
