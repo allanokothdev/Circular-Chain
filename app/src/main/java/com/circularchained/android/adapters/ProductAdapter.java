@@ -84,15 +84,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             imageView.setTransitionName(product.getId());
             Glide.with(mContext.getApplicationContext()).load(product.getPic()).placeholder(R.drawable.placeholder).into(imageView);
             textView.setText(product.getTitle());
-            fetchRating(GetUser.fetchObject(mContext,Constants.PRIVATE_KEY),product.getBatchId(),ratingBar,subTextView);
+            fetchRating(product.getBatchId(),ratingBar,subTextView);
             button.setOnClickListener(v -> productItemClickListener.onProductItemClick(product,imageView));
         }
     }
 
 
-    private void fetchRating(String privateKey, int batchId, RatingBar ratingBar, TextView ratingTextView){
+    private void fetchRating(int batchId, RatingBar ratingBar, TextView ratingTextView){
         Map<String, Object> data = new HashMap<>();
-        data.put("key", privateKey);
         data.put("batch", batchId);
         firebaseFunctions.getHttpsCallable(Constants.CALCULATE_ESG).call(data).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
