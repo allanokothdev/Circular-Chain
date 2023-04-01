@@ -107,11 +107,7 @@ public class Splash extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void sendUserToCreateActivity(boolean status) {
-        if (status){
-            createWallet();
-        }else {
-            startActivity(new Intent(mContext, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
-        }
+        startActivity(new Intent(mContext, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
         overridePendingTransition(R.anim.enter_from_right,R.anim.exit_to_left);
     }
 
@@ -146,23 +142,5 @@ public class Splash extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
-    private void createWallet() {
-        firebaseFunctions.getHttpsCallable(Constants.CREATE_WALLET).call().addOnCompleteListener(task -> {
-            if (task.isSuccessful()){
-                Map<String, Object> result = (Map<String, Object>) task.getResult().getData();
-                assert result != null;
-                String privateKey = Objects.requireNonNull(result.get("privateKey")).toString();
-                String address = Objects.requireNonNull(result.get("address")).toString();
-                Toast.makeText(mContext,address,Toast.LENGTH_SHORT).show();
-                GetUser.saveObject(mContext,Constants.PRIVATE_KEY,privateKey);
-                GetUser.saveObject(mContext,Constants.ADDRESS,address);
-                startActivity(new Intent(mContext, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
-
-            } else {
-                Snackbar snackbar = Snackbar.make(container, Objects.requireNonNull(Objects.requireNonNull(task.getException()).getMessage()), Snackbar.LENGTH_SHORT);
-                snackbar.show();
-            }
-        });
-    }
 }
 
