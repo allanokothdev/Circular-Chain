@@ -112,7 +112,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                         rating = rating/5;
                         ratingBar.setRating(rating);
                         Toast.makeText(mContext,String.valueOf(rating),Toast.LENGTH_LONG).show();
-                        ratingTextView.setText(mContext.getString(R.string._4_5,rating));
+                        ratingTextView.setText(String.valueOf(rating)+"/5");
                         ratingBar.setVisibility(View.VISIBLE);
                         ratingTextView.setVisibility(View.VISIBLE);
                     } else {
