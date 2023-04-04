@@ -172,7 +172,7 @@
 
     <string name="steps">Step %s</string>
     <string name="check_sustainability">Check Sustainability</string>
-    <string name="_4_5">(%.0f/5)</string>
+    <string name="_4_5">( %s /5)</string>
 
 
 </resources>

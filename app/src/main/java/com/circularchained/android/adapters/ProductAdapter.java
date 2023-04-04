@@ -111,18 +111,19 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                         float rating = (esg.getNatureScore() + esg.getWasteScore() + esg.getLabourScore() + esg.getCommunityScore() + esg.getWasteScore())/response.getNoOfItems();
                         rating = rating/5;
                         ratingBar.setRating(rating);
-                        ratingTextView.setText(mContext.getString(R.string._4_5,rating));
+                        ratingTextView.setText(mContext.getString(R.string._4_5,String.valueOf(rating)));
                         ratingBar.setVisibility(View.VISIBLE);
                         ratingTextView.setVisibility(View.VISIBLE);
                     } else {
                         ratingBar.setVisibility(View.INVISIBLE);
-                        ratingTextView.setVisibility(View.VISIBLE);
+                        ratingTextView.setVisibility(View.INVISIBLE);
                     }
                 } catch (Exception e){
                     e.printStackTrace();
                 }
             } else {
                 ratingBar.setVisibility(View.INVISIBLE);
+                ratingTextView.setVisibility(View.VISIBLE);
                 Toast.makeText(mContext, Objects.requireNonNull(task.getException()).getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });

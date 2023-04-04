@@ -3,11 +3,11 @@
 
     <string-array name="category">
         <item>Beverage</item>
+        <item>Footwear</item>
         <item>Chemicals</item>
         <item>Cosmetics</item>
         <item>Electronics</item>
         <item>Food</item>
-        <item>Footwear</item>
         <item>Medicine</item>
         <item>Menswear</item>
         <item>Tools</item>
