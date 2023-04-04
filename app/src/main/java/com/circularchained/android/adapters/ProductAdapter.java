@@ -111,7 +111,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                         float rating = (esg.getNatureScore() + esg.getWasteScore() + esg.getLabourScore() + esg.getCommunityScore() + esg.getWasteScore())/response.getNoOfItems();
                         rating = rating/5;
                         ratingBar.setRating(rating);
-                        ratingTextView.setText(mContext.getString(R.string._4_5,String.valueOf(rating)));
+                        Toast.makeText(mContext,String.valueOf(rating),Toast.LENGTH_LONG).show();
+                        ratingTextView.setText(mContext.getString(R.string._4_5,rating));
                         ratingBar.setVisibility(View.VISIBLE);
                         ratingTextView.setVisibility(View.VISIBLE);
                     } else {
@@ -123,7 +124,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 }
             } else {
                 ratingBar.setVisibility(View.INVISIBLE);
-                ratingTextView.setVisibility(View.VISIBLE);
+                ratingTextView.setVisibility(View.INVISIBLE);
                 Toast.makeText(mContext, Objects.requireNonNull(task.getException()).getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
