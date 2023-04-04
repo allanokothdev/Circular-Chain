@@ -64,7 +64,7 @@
                 <RatingBar
                     android:layout_centerVertical="true"
                     android:layout_alignParentStart="true"
-                    android:rating="4"
+                    android:rating="0"
                     android:numStars="5"
                     android:progressTint="@color/colorGreen"
                     style="@style/Widget.AppCompat.RatingBar.Small"
@@ -76,7 +76,6 @@
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
                     android:fontFamily="@font/open_sans_regular"
-                    android:text="@string/_4_5"
                     android:id="@+id/ratingTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
