@@ -14,7 +14,7 @@ const provider = new ethers.providers.JsonRpcProvider(FilecoinRpc);
 const privateKey = "28c79b842a827fd27d66806d4662b259be4b23f4d732564c32ff900122bc0637";
 
 const CircularChainABI = require("./abi/CircularChain.json");
-const CircularChainContractAddress = "0x6523F56455647100d2F7eAAe00359e40E52dC1d3";
+const CircularChainContractAddress = "0x5aF7dA0f0d52F08f4852403f7EE49F79D96Fe1e3";
 
 
 // CREATE NEW WALLET ADDRESS
